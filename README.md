@@ -123,7 +123,7 @@ Here's an example of a few integration problems and how they can be resolved:
 
 These components don't emit the native `input` event, so Angular does not pick up changes to pass to [(ngModel)].
 
-Fixing this requires updating the component to dispatch the input event:
+Fixing this means updating the component to dispatch the input event:
 
 ``` typescript
 this.dispatchEvent(
@@ -139,7 +139,7 @@ this.dispatchEvent(
 
 This component does not emit the native `change` event, so Angular does not pick up when you select an option.
 
-Fixing this means updating the nys-select component to dispatch the change event:
+Fixing this means updating the `<nys-select>` component definition file to dispatch the change event:
 
 ``` javascript
 this.dispatchEvent(
