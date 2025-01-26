@@ -34,7 +34,7 @@ Angular doesn't natively recognize custom elements (web components) as form cont
 
 When adding a new Excelsior web component to the test app, there are three files you'll need to modify:
 
-1. `app.component.ts`
+1. [`app.component.ts`](https://github.com/ITS-HCD/excelsior-angular-webcomponents-demo/blob/main/src/app/app.component.ts)
 
 This file contains the logic for the form and handles data binding and submission. To add a new component, define a property in the formData object to store the component's value.
 
@@ -50,7 +50,7 @@ formData = {
 };
 ```
 
-2. `app.component.html`
+2. [`app.component.html`](https://github.com/ITS-HCD/excelsior-angular-webcomponents-demo/blob/main/src/app/app.component.html)
 
 This is the HTML template where you'll place the new web component. If it's a form element, put it inside the form tags and bind its value using [(ngModel)] to the property you created in formData.
 
@@ -62,7 +62,7 @@ This is the HTML template where you'll place the new web component. If it's a fo
 </nys-newcomponent>
 ```
 
-3. `nys-value-accessors.directive.ts`
+3. [`nys-value-accessors.directive.ts`](https://github.com/ITS-HCD/excelsior-angular-webcomponents-demo/blob/main/src/app/nys-value-accessors.directive.ts)
 
 This is the trickiest bit. Think of this like a translation layer between the Angular form handler and the web component.
 
