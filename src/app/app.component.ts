@@ -1,11 +1,68 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import {
+  NysTextInputAccessorDirective,
+  NysTextareaAccessorDirective,
+  NysCheckboxAccessorDirective,
+  NysRadioGroupAccessorDirective,
+  NysSelectAccessorDirective
+} from "./nys-value-accessors.directive";
+
+// Import the CSS framework
+import "@nys-excelsior/styles/full";
+
+// Import the web components library
+import "@nys-excelsior/components";
 
 @Component({
-  selector: 'app-root',
-  imports: [],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  selector: "app-root",
+  standalone: true, // Indicates this is a standalone component
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // Allow custom elements
+  imports: [
+    FormsModule,
+    NysTextInputAccessorDirective,
+    NysTextareaAccessorDirective,
+    NysCheckboxAccessorDirective,
+    NysRadioGroupAccessorDirective,
+    NysSelectAccessorDirective
+  ],
 })
 export class AppComponent {
-  title = 'angular-webcomponents-demo';
+
+  @ViewChild("alert", { static: false }) alert!: ElementRef; // Target alert
+
+  formData = {
+    firstName: "",
+    message: "",
+    agree: false,
+    option: "",
+    office: "",
+    favoriteBorough: ""
+  };
+
+  onSubmit(data: any) {
+    if (!this.alert) {
+      console.error("Alert component is not available.");
+      return;
+    }
+
+    const alertElement = this.alert.nativeElement;
+
+    // Construct a detailed alert message
+    const alertMessage = `
+      First Name: ${data.firstName || "N/A"} |
+      Message: ${data.message || "N/A"} |
+      Agree to Terms: ${data.agree ? "Yes" : "No"} |
+      Selected Option: ${data.option || "N/A"} |
+      Office Location: ${data.office || "N/A"} |
+      Favorite Borough: ${data.favoriteBorough || "N/A"}
+    `;
+
+    // Update the nys-alert attributes
+    alertElement.setAttribute("theme", "success");
+    alertElement.setAttribute("heading", "Form Submitted Successfully!");
+    alertElement.setAttribute("text", alertMessage.trim());
+  }
 }
