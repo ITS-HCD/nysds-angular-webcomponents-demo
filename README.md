@@ -64,12 +64,14 @@ This is the HTML template where you'll place the new web component. If it's a fo
 
 3. [`nys-value-accessors.directive.ts`](https://github.com/ITS-HCD/excelsior-angular-webcomponents-demo/blob/main/src/app/nys-value-accessors.directive.ts)
 
-This is the trickiest bit. Think of this like a translation layer between the Angular form handler and the web component.
+**This is the trickiest bit.** We have to create a "translation layer" between Angular's form handler and Excelsior's web components.
 
-This file contains ControlValueAccessor directives for each input element and acts like a bridge between Angular forms and events in the custom web components. If the new component is a form element that interacts with Angular forms, you need to:
+This file contains ControlValueAccessor directives for each input element and acts like a bridge between Angular forms and events fired by custom web components. If the new component is a form element that interacts with Angular forms, you need to:
 
 - Create a new directive to map Angular's form API to the component’s value and events.
 - Set up the directive to listen to the correct events (input, change) and updates the value accordingly.
+
+Here's an example, be sure to review the other components' directives to get an idea how they work:
 
 ``` typescript
 @Directive({
