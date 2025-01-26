@@ -1,29 +1,3 @@
-<style>
-  .nys-button {
-    background-color: var(--nys-color-theme);
-    font-size: var(--nys-font-size-ui-md);
-    color: var(--nys-color-ink-reverse);
-    padding: var(--nys-size-200) var(--nys-size-400);
-    border: none;
-    border-radius: var(--nys-radius-md);
-    cursor: pointer;
-    align-self: start;
-    width: auto;
-  }
-  .nys-button:hover {
-    background-color: var(--nys-color-theme-strong);
-  }
-  .nys-button:active {
-    background-color: var(--nys-color-theme-stronger);
-  }
-  .nys-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--nys-space-400); /* Adds consistent spacing between elements */
-  }
-
-</style>
-
 <div class="nys-grid-container">
   <div class="nys-grid-row">
     <div class="nys-grid-col">
@@ -45,6 +19,7 @@
           label="Message"
           name="message"
           width="lg"
+          rows="4"
           required
           [(ngModel)]="formData.message">
         </nys-textarea>

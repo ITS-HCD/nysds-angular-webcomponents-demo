@@ -1,0 +1,86 @@
+@import "../assets/fonts/excelsior-fonts.css";
+
+/* === Global Styles */
+/* These really need to be defined in excelsior.css */
+
+/* === Typography */
+
+body {
+  margin: 0;
+  font-family: var(--nys-font-family-body);
+  color: var(--nys-color-ink);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--nys-font-family-heading);
+}
+h1 {
+  font-size: var(--nys-font-size-h1);
+  line-height: var(--nys-font-lineheight-h1);
+}
+h2 {
+  font-size: var(--nys-font-size-h2);
+  line-height: var(--nys-font-lineheight-h2);
+}
+h3 {
+  font-size: var(--nys-font-size-h3);
+  line-height: var(--nys-font-lineheight-h3);
+}
+h4 {
+  font-size: var(--nys-font-size-h4);
+  line-height: var(--nys-font-lineheight-h4);
+}
+h5 {
+  font-size: var(--nys-font-size-h5);
+  line-height: var(--nys-font-lineheight-h5);
+}
+h6 {
+  font-size: var(--nys-font-size-h6);
+  line-height: var(--nys-font-lineheight-h6);
+}
+
+p, ul, ol, dl, blockquote {
+  line-height: var(--nys-font-lineheight-body-md);
+}
+
+a {
+  color: var(--nys-color-link);
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: var(--nys-color-link-strong);
+  text-decoration: underline;
+}
+a:active {
+  color: var(--nys-color-link-strongest);
+}
+
+/* Component Styling */
+
+.nys-button {
+  background-color: var(--nys-color-theme);
+  font: bold var(--nys-font-size-ui-md) / var(--nys-font-lineheight-ui-md) var(--nys-font-family-ui);
+  color: var(--nys-color-ink-reverse);
+  padding: var(--nys-size-150) var(--nys-size-400);
+  border: none;
+  border-radius: var(--nys-radius-xl);
+  cursor: pointer;
+  align-self: start;
+  width: auto;
+}
+.nys-button:focus {
+  outline: 2px solid var(--nys-color-focus);
+  outline-offset: 2px;
+}
+.nys-button:hover {
+  background-color: var(--nys-color-theme-strong);
+}
+.nys-button:active {
+  background-color: var(--nys-color-theme-stronger);
+}
+.nys-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nys-space-400); /* Adds consistent spacing between elements */
+}
