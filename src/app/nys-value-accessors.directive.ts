@@ -1,4 +1,4 @@
-import { Directive, ElementRef, forwardRef, Renderer2 } from "@angular/core";
+import { Directive, ElementRef, forwardRef, Renderer2, Input, HostListener } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 /**
@@ -172,6 +172,46 @@ export class NysRadioGroupAccessorDirective implements ControlValueAccessor {
     this.renderer.setProperty(this.elementRef.nativeElement, "disabled", isDisabled);
   }
 
+}
+
+@Directive({
+  selector: "nys-button"
+})
+export class NysButtonDirective {
+  @Input() type: "submit" | "button" | "reset" = "submit";
+
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
+
+  ngOnInit() {
+    this.renderer.setAttribute(this.elementRef.nativeElement, "type", this.type);
+  }
+
+  @Input() set disabled(value: boolean) {
+    this.renderer.setProperty(this.elementRef.nativeElement, "disabled", value);
+  }
+
+  @HostListener("click", ["$event"])
+  handleClick(event: Event) {
+    const buttonType = this.elementRef.nativeElement.getAttribute("type");
+
+    // If it's a submit button inside a form, let it submit
+    if (buttonType === "submit") {
+      const form = this.findParentForm(this.elementRef.nativeElement);
+      if (form) {
+        form.requestSubmit();
+      }
+    }
+  }
+
+  private findParentForm(element: HTMLElement): HTMLFormElement | null {
+    while (element.parentElement) {
+      element = element.parentElement;
+      if (element.tagName === "FORM") {
+        return element as HTMLFormElement;
+      }
+    }
+    return null;
+  }
 }
 
 @Directive({

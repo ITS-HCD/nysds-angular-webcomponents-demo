@@ -36,8 +36,7 @@ export class AppComponent {
   formData = {
     firstName: "",
     message: "",
-    agree: false,
-    option: "",
+    agree: "",
     office: "",
     favoriteBorough: ""
   };
@@ -52,16 +51,15 @@ export class AppComponent {
 
     // Construct a detailed alert message
     const alertMessage = `
-      First Name: ${data.firstName || "N/A"} |
-      Message: ${data.message || "N/A"} |
-      Agree to Terms: ${data.agree ? "Yes" : "No"} |
-      Selected Option: ${data.option || "N/A"} |
-      Office Location: ${data.office || "N/A"} |
+      First Name: ${data.firstName || "N/A"} /———/
+      Message: ${data.message || "N/A"} /———/
+      Agree to Terms: ${data.agree ? "Yes" : "No"} /———/
+      Office Location: ${data.office || "N/A"} /———/
       Favorite Borough: ${data.favoriteBorough || "N/A"}
     `;
 
     // Update the nys-alert attributes
-    alertElement.setAttribute("theme", "success");
+    alertElement.setAttribute("type", "success");
     alertElement.setAttribute("heading", "Form Submitted Successfully!");
     alertElement.setAttribute("text", alertMessage.trim());
   }

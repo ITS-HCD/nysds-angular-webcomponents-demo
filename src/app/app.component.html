@@ -41,14 +41,14 @@
         [(ngModel)]="formData.office"
         >
           <nys-radiobutton
-            name="albany"
+            name="office"
             label="Albany"
             description="Upstate New York"
             value="Albany"
             >
           </nys-radiobutton>
           <nys-radiobutton
-            name="manhattan"
+            name="office"
             label="Manhattan"
             description="New York City"
             value="Manhattan"
@@ -69,19 +69,25 @@
           <nys-option value="Queens" label="Queens"></nys-option>
         </nys-select>
 
-        <!-- Submit Button -->
-        <button type="submit" class="nys-button">Submit</button>
 
-      </form>
       <!-- Alert Component -->
-      <div style="margin-top: var(--nys-space-400)">
+      <div>
         <nys-alert
           #alert
           theme="info"
           heading="Test Form"
-          text="Submit the form below to see what form data is passed."
+          text="Submit the form to see what form data is passed."
         ></nys-alert>
       </div>
+
+        <!-- Submit Button -->
+
+        <button class="nys-button" type="submit">Submit (Native)</button>
+        <nys-button type="submit" label="Submit (Web Component)"></nys-button>
+
+
+      </form>
+
     </div>
   </div>
 </div>
