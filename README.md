@@ -1,6 +1,6 @@
-# Excelsior Angular Web Components Integration Demo
+# NYSDS Angular Web Components Integration Demo
 
-This project is for testing how Excelsior Web Components integrate with Angular applications. The goal of this sample app is testing integrations like event bindings and Angular form handling. Since a lot of New York State (NYS) applications are built with Angular, it's important that we test and verify that our web components work seamlessly within this framework. 
+This project is for testing how NYSDS Web Components integrate with Angular applications. The goal of this sample app is testing integrations like event bindings and Angular form handling. Since a lot of New York State (NYS) applications are built with Angular, it's important that we test and verify that our web components work seamlessly within this framework. 
 
 ## Getting Started
 
@@ -32,9 +32,9 @@ Angular doesn't natively recognize custom elements (web components) as form cont
 
 ## Key Files 
 
-When adding a new Excelsior web component to the test app, there are three files you'll need to modify:
+When adding a new NYSDS web component to the test app, there are three files you'll need to modify:
 
-1. [`app.component.ts`](https://github.com/ITS-HCD/excelsior-angular-webcomponents-demo/blob/main/src/app/app.component.ts)
+1. [`app.component.ts`](https://github.com/ITS-HCD/nysds-angular-webcomponents-demo/blob/main/src/app/app.component.ts)
 
 This file contains the logic for the form and handles data binding and submission. To add a new component, define a property in the formData object to store the component's value.
 
@@ -50,7 +50,7 @@ formData = {
 };
 ```
 
-2. [`app.component.html`](https://github.com/ITS-HCD/excelsior-angular-webcomponents-demo/blob/main/src/app/app.component.html)
+2. [`app.component.html`](https://github.com/ITS-HCD/nysds-angular-webcomponents-demo/blob/main/src/app/app.component.html)
 
 This is the HTML template where you'll place the new web component. If it's a form element, put it inside the form tags and bind its value using [(ngModel)] to the property you created in formData.
 
@@ -62,9 +62,9 @@ This is the HTML template where you'll place the new web component. If it's a fo
 </nys-newcomponent>
 ```
 
-3. [`nys-value-accessors.directive.ts`](https://github.com/ITS-HCD/excelsior-angular-webcomponents-demo/blob/main/src/app/nys-value-accessors.directive.ts)
+3. [`nys-value-accessors.directive.ts`](https://github.com/ITS-HCD/nysds-angular-webcomponents-demo/blob/main/src/app/nys-value-accessors.directive.ts)
 
-**This is the trickiest bit.** We have to create a "translation layer" between Angular's form handler and Excelsior's web components.
+**This is the trickiest bit.** We have to create a "translation layer" between Angular's form handler and NYSDS's web components.
 
 This file contains ControlValueAccessor directives for each input element and acts like a bridge between Angular forms and events fired by custom web components. If the new component is a form element that interacts with Angular forms, you need to:
 
@@ -117,7 +117,7 @@ export class NysNewComponentAccessorDirective implements ControlValueAccessor {
 
 ## Debugging
 
-While testing Excelsior web components, check to see if the data is being passed correctly to the form.
+While testing NYSDS web components, check to see if the data is being passed correctly to the form.
 
 Here's an example of a few integration problems and how they can be resolved:
 
@@ -158,6 +158,6 @@ this.dispatchEvent(
 For more information:
 
 - [Angular CLI Documentation](https://angular.dev/tools/cli)
-- [Excelsior Storybook](https://its-hcd.github.io/excelsior/?path=/docs/about--docs)
-- [Excelsior GitHub Repository](https://its-hcd.github.com/excelsior)
+- [NYSDS Storybook](https://its-hcd.github.io/nysds/?path=/docs/about--docs)
+- [NYSDS GitHub Repository](https://its-hcd.github.com/nysds)
 - [Custom Elements Specification](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)

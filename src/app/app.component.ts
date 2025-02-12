@@ -9,10 +9,10 @@ import {
 } from "./nys-value-accessors.directive";
 
 // Import the CSS framework
-import "@nys-excelsior/styles/full";
+import "@nysds/styles/full";
 
 // Import the web components library
-import "@nys-excelsior/components";
+import "@nysds/components";
 
 @Component({
   selector: "app-root",
